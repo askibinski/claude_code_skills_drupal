@@ -4,14 +4,49 @@ Claude Code skills for Drupal development. These skills provide structured guida
 
 ## Installation
 
-Clone this repository and configure Claude Code to use these skills:
+### Option 1: Project Skills (Recommended for Teams)
+
+Copy the skill files to your Drupal project's `.claude/skills/` directory:
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/drupal-skills.git
-cd drupal-skills
+# From your Drupal project root
+mkdir -p .claude/skills
+cp -r /path/to/claude_code_skills_drupal/entity-api .claude/skills/
 ```
 
-The `.claude/settings.json` includes a hook that automatically evaluates which skills are relevant for your current task.
+Skills in `.claude/skills/` are version-controlled and automatically available to all team members.
+
+### Option 2: Global Skills (Personal Use)
+
+Copy to your home directory for use across all projects:
+
+```bash
+mkdir -p ~/.claude/skills
+cp -r /path/to/claude_code_skills_drupal/entity-api ~/.claude/skills/
+```
+
+### Optional: Hooks and Commands
+
+To also use the forced-eval hook and slash commands, copy the `.claude/` configuration:
+
+```bash
+# Copy hooks and commands (merge with existing .claude/ if present)
+cp -r /path/to/claude_code_skills_drupal/.claude/hooks your-project/.claude/
+cp -r /path/to/claude_code_skills_drupal/.claude/commands your-project/.claude/
+```
+
+Add the hook to your project's `.claude/settings.json`:
+
+```json
+{
+  "hooks": {
+    "UserPromptSubmit": [{
+      "type": "command",
+      "command": ".claude/hooks/skill-eval-hook.sh"
+    }]
+  }
+}
+```
 
 ## Available Skills
 
