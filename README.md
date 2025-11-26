@@ -1,5 +1,7 @@
 # Drupal Skills for Claude Code
 
+> **Experimental**: This project is in early development. Currently only Entity API skills are available. More skills (fields, forms, migrations, theming) may be added over time.
+
 Claude Code skills for Drupal development. These skills provide structured guidance for common Drupal development patterns, following official Drupal coding standards and best practices.
 
 ## Installation
@@ -82,6 +84,10 @@ Skills target **Drupal 11** with notes for D10 compatibility where patterns diff
 
 Based on official Drupal API documentation:
 - [Entity API (D11)](https://api.drupal.org/api/drupal/core%21lib%21Drupal%21Core%21Entity%21entity.api.php/group/entity_api/11.x)
+
+## Credits
+
+The forced-eval hook pattern for reliable skill activation is inspired by [Scott Spence's article on making Claude Code skills activate reliably](https://scottspence.com/posts/how-to-make-claude-code-skills-activate-reliably).
 
 ## Contributing
 
